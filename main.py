@@ -13,7 +13,6 @@ right_lane = int(width/2.0 + road_w/4.0)
 left_lane = int(width/2.0 - road_w/4.0)
 speed = 1
 
-
 # Initialize
 pygame.init()
 running = True
@@ -26,7 +25,6 @@ pygame.display.set_caption("Virginity_keeper")
 
 # Set background color
 screen.fill((60,220,0))
-
 
 # Apply changes
 pygame.display.update()
@@ -65,9 +63,9 @@ while running:
             if event.type == QUIT:
                 running = False
             if event.type == KEYDOWN:
-            	if event.key in [K_a, K_LEFT]:
+            	if event.key in [K_a, K_LEFT] and concha_loc[0] > left_lane:
             	    concha_loc = concha_loc.move([-int(road_w/2.0), 0])
-            	if event.key in [K_d, K_RIGHT]:
+            	if event.key in [K_d, K_RIGHT] and concha_loc[0] < left_lane:
             	    concha_loc = concha_loc.move([int(road_w/2.0), 0])
     pygame.draw.rect(
         screen, # Where to draw
